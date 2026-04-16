@@ -1,45 +1,66 @@
 # AWS 3-Tier Architecture Project
 
-## 📌 Description
-Ce projet démontre la mise en place d'une architecture 3-tier sur AWS, une architecture couramment utilisée dans les applications web modernes.
+![Architecture](architecture.png)
 
-## 🏗️ Architecture
-L’architecture est composée de 3 couches :
+## Overview
+This project demonstrates the implementation of a secure and scalable 3-tier architecture on AWS.
 
-- **Presentation Layer (Web Server)** : EC2 dans un subnet public
-- **Application Layer (App Server)** : EC2 dans un subnet privé
-- **Database Layer (RDS)** : Base de données dans un subnet privé
+The architecture separates the application into three layers:
+- Presentation Layer (Web Server)
+- Application Layer (App Server)
+- Database Layer (RDS)
 
-## ⚙️ Services utilisés
-- AWS VPC
-- Subnets (Public & Private)
+##  Architecture Design
+
+User → Internet Gateway → Web Server (Public Subnet)  
+→ App Server (Private Subnet)  
+→ Database (RDS - Private Subnet)
+
+##  AWS Services Used
+
+- Amazon VPC
+- Public & Private Subnets
 - Internet Gateway
 - NAT Gateway
 - EC2 (Bastion Host, Web Server, App Server)
-- RDS (MariaDB)
+- Amazon RDS (MariaDB)
 - Security Groups
 
-## 🔐 Sécurité
-- Accès SSH via Bastion Host uniquement
-- Base de données accessible seulement depuis App Server
-- Subnets privés isolés
+##  Security Implementation
 
-## 🚀 Étapes principales
-1. Création du VPC et des subnets
-2. Configuration des route tables
-3. Mise en place des Security Groups
-4. Déploiement des instances EC2
-5. Installation des serveurs (Web & App)
-6. Création de la base de données RDS
-7. Tests de connectivité
+- Bastion Host for secure SSH access
+- Private subnets for App & Database layers
+- Security Groups restricting access between layers
 
-## 🧪 Tests réalisés
-- Connexion SSH via Bastion Host
-- Ping entre serveurs
-- Connexion à la base de données depuis App Server
+##  Deployment Steps
 
-## 📸 Architecture
-Voir fichier `architecture.png`
+1. Create VPC and Subnets
+2. Configure Route Tables
+3. Setup Internet Gateway & NAT Gateway
+4. Configure Security Groups
+5. Launch EC2 Instances
+6. Install Web & App Servers
+7. Create RDS Database
+8. Test connectivity
 
-## 🎯 Objectif
-Comprendre comment sécuriser et structurer une application scalable dans le cloud AWS. 
+##  Testing
+
+- SSH access via Bastion Host
+- Communication between servers
+- Database connection from App Server
+
+##  Project Structure
+
+
+
+## Key Learnings
+
+- Designing secure cloud architectures
+- Network isolation using VPC
+- Managing access between layers
+- Deploying real-world cloud infrastructure
+
+## Author
+
+**Aboubacar Camara**  
+Aspiring Cloud & Full-Stack Developer
